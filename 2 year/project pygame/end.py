@@ -19,7 +19,7 @@ class End:
     def end_screen(self):
         fon = pygame.transform.scale(End().load_image('end.png'), (WIDTH, HEIGHT))  # вставка картинки
         screen.blit(fon, (0, 0))
-        font = pygame.font.Font('3375.ttf', 30)  # загрузка пользовательского шрифта
+        font = pygame.font.Font('images/3375.ttf', 30)  # загрузка пользовательского шрифта
         text_coord_cont = 440  # рисую кнопку
         string_rendered = font.render("CONTINUE", 1, pygame.Color((48, 33, 18)))
         close_rect_cont = string_rendered.get_rect()
@@ -34,7 +34,7 @@ class End:
     def thanks_screen(self):  # все аналогично предыдущему
         fon = pygame.transform.scale(End().load_image('thanks.png'), (WIDTH, HEIGHT))
         screen.blit(fon, (0, 0))
-        font = pygame.font.Font('3375.ttf', 30)
+        font = pygame.font.Font('images/3375.ttf', 30)
         text_coord_cont = 440
         string_rendered = font.render("CONTINUE", 1, pygame.Color((48, 33, 18)))
         close_rect_cont = string_rendered.get_rect()
@@ -49,7 +49,7 @@ class End:
     def heart_screen(self):  # все аналогично предыдущему
         fon = pygame.transform.scale(End().load_image('heart.jpg'), (WIDTH, HEIGHT))
         screen.blit(fon, (0, 0))
-        font = pygame.font.Font('3375.ttf', 30)
+        font = pygame.font.Font('images/3375.ttf', 30)
         text_coord_close = 440
         string_rendered = font.render("CLOSE", 1, pygame.Color((48, 33, 18)))
         close_rect_close = string_rendered.get_rect()
