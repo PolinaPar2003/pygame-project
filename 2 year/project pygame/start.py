@@ -20,7 +20,7 @@ class Start:
     def start_screen(self):
         fon = pygame.transform.scale(Start().load_image('intro.png'), (WIDTH, HEIGHT))  # вставка картинки
         screen.blit(fon, (0, 0))
-        font = pygame.font.Font('3375.ttf', 30)  # загрузка пользовательского шрифта
+        font = pygame.font.Font('images/3375.ttf', 30)  # загрузка пользовательского шрифта
         text_rules_coord = 300  # рисую кнопку с правилами игры
         string_rendered = font.render("GAME RULES", 1, pygame.Color((48, 33, 18)))
         intro_rect_rules = string_rendered.get_rect()
@@ -45,7 +45,7 @@ class Start:
     def gamerules_screen(self):
         fon = pygame.transform.scale(Start().load_image('gamerules.png'), (WIDTH, HEIGHT))  # вставка картинок
         screen.blit(fon, (0, 0))
-        font = pygame.font.Font('3375.ttf', 30)  # загрузка пользовательского шрифта
+        font = pygame.font.Font('images/3375.ttf', 30)  # загрузка пользовательского шрифта
         text_coord_play = 90  # рисую кнопку
         string_rendered = font.render("PLAY", 1, pygame.Color((48, 33, 18)))
         gamerules_rect_play = string_rendered.get_rect()
