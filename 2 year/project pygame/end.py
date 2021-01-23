@@ -35,11 +35,26 @@ class End:
         fon = pygame.transform.scale(End().load_image('thanks.png'), (WIDTH, HEIGHT))
         screen.blit(fon, (0, 0))
         font = pygame.font.Font('3375.ttf', 30)
+        text_coord_cont = 440
+        string_rendered = font.render("CONTINUE", 1, pygame.Color((48, 33, 18)))
+        close_rect_cont = string_rendered.get_rect()
+        close_rect_cont.top = text_coord_cont
+        close_rect_cont.x = 440
+        text_coord_cont += close_rect_cont.height
+        pygame.draw.rect(screen, (87, 166, 57), (close_rect_cont.x - 10, close_rect_cont.y - 10,
+                                                 close_rect_cont.width + 20, close_rect_cont.height + 20))
+        screen.blit(string_rendered, close_rect_cont)
+        return close_rect_cont
+
+    def heart_screen(self):  # все аналогично предыдущему
+        fon = pygame.transform.scale(End().load_image('heart.jpg'), (WIDTH, HEIGHT))
+        screen.blit(fon, (0, 0))
+        font = pygame.font.Font('3375.ttf', 30)
         text_coord_close = 440
         string_rendered = font.render("CLOSE", 1, pygame.Color((48, 33, 18)))
         close_rect_close = string_rendered.get_rect()
         close_rect_close.top = text_coord_close
-        close_rect_close.x = 440
+        close_rect_close.x = 690
         text_coord_close += close_rect_close.height
         pygame.draw.rect(screen, (87, 166, 57), (close_rect_close.x - 10, close_rect_close.y - 10,
                                                  close_rect_close.width + 20, close_rect_close.height + 20))
@@ -62,15 +77,17 @@ if __name__ == '__main__':
     while running:
         if check == 0:  # сначала открывается окно с концом
             continue_b = End().end_screen()
-        else:  # при нажатии на кнопку - благодарность
-            close = End().thanks_screen()
+        elif check == 1:  # при нажатии на кнопку - благодарность
+            continue_b = End().thanks_screen()
+        else:
+            close = End().heart_screen()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 End().terminate()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if (continue_b.x - 10 <= event.pos[0] <= continue_b.width + 20 + continue_b.x - 10) and \
                         (continue_b.y - 10 <= event.pos[1] <= continue_b.height + 20 + continue_b.y - 10):
-                    check = 1  # если клик мыши попадает на кнопку, то переход к благодарности
+                    check += 1  # если клик мыши попадает на кнопку, то переход к благодарности
                 elif (close.x - 10 <= event.pos[0] <= close.width + 20 + close.x - 10) and \
                         (close.y - 10 <= event.pos[1] <= close.height + 20 + close.y - 10):
                     running = False  # если клик мыши попадает на кнопку, то закрытие окна
