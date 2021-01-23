@@ -19,7 +19,7 @@ class Win:
     def win_screen(self):
         fon = pygame.transform.scale(Win().load_image('win.png'), (WIDTH, HEIGHT))  # вставка картинок
         screen.blit(fon, (0, 0))
-        font = pygame.font.Font('3375.ttf', 30)  # загрузка пользовательского шрифта
+        font = pygame.font.Font('images/3375.ttf', 30)  # загрузка пользовательского шрифта
         text_coord_play = 390  # рисую кнопку
         string_rendered = font.render("CLOSE", 1, pygame.Color((48, 33, 18)))
         close_rect_play = string_rendered.get_rect()
